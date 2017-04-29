@@ -1,35 +1,41 @@
 import React, { Component } from 'react';
 import Projects from './Components/Projects';
+import AddProject from './Components/AddProject';
 import './App.css';
 
 class App extends Component {
-  constructor(){
+  constructor() {
     super();
-   this.state={
-      projects: [
-    {
-      title: 'Business Websites',
-      category: 'Web Design'
-    },
-    {
-      title: 'Social App',
-      category: 'Mobile Developement'
-    },
-    {
-      title: 'Ecommerce Shopping Cart',
-      category: 'Web Developement'
-    }
-  ] 
+    this.state = {
+      projects: []
     }
   }
-  
- 
+
+  componentWillMount() {
+    this.setState({projects: [
+        {
+          title: 'Business Websites',
+          category: 'Web Design'
+        },
+        {
+          title: 'Social App',
+          category: 'Mobile Developement'
+        },
+        {
+          title: 'Ecommerce Shopping Cart',
+          category: 'Web Developement'
+        },
+      ]
+    });
+
+  }
+
   render() {
 
     return (
       <div className="App">
-        MY APP
-        <Projects projects={this.state.projects} />
+        <AddProject />
+     <Projects projects={this.state.projects} />
       </div>
     );
   }
